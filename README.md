@@ -21,7 +21,7 @@
 
 | 场景 | 怎么做 |
 | --- | --- |
-| Finder 里的图片文件 | 选中文件 → Universal Action（默认 `⌘/`）→ **Upload to ImgBed** |
+| Finder 里的图片文件 | 选中文件 → Universal Action（默认 `⌘/`）→ **Upload to ImgBed**（匹配全部 `public.image`，含 PNG / JPEG / GIF / WebP / TIFF） |
 | 剪贴板截图 | `⌘⌃⇧4` 复制到剪贴板 → 按 Hotkey，或 Alfred 里输入 `imgbed` |
 | 桌面截图文件 | `⌘⇧4` 存到桌面 → 选中该文件 → Universal Action |
 | 测试连接 | Alfred 里输入 `imgbed-test`（会上传一张 1×1 PNG） |

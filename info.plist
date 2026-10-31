@@ -182,7 +182,7 @@
 				<integer>1</integer>
 				<key>filetypes</key>
 				<array>
-					<string>public.image</string>
+					<string>+public.image</string>
 				</array>
 				<key>name</key>
 				<string>Upload to ImgBed</string>
@@ -734,7 +734,7 @@
 		<string>auth_code</string>
 	</array>
 	<key>version</key>
-	<string>1.1.0</string>
+	<string>1.1.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/qydxyx/alfred-imgbed-workflow</string>
 </dict>
