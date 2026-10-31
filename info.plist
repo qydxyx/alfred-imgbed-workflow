@@ -21,19 +21,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>F5B47603-D7F8-4B48-63FF-A3BD48B51BFF</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>2B8D4F3C-0A25-4E7B-9C32-D6F01B8E4E22</key>
 		<array>
 			<dict>
@@ -115,20 +102,19 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>9C5E10AD-7192-45E2-0DA9-4D57825FB599</string>
+				<string>B17032CF-93B4-4704-2FCB-6F790471D7BB</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>sourceoutputuid</key>
+				<string>71B40A1C-6E81-54D1-FC98-3C46714EA488</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
-		</array>
-		<key>8B4D0F9C-6081-44D1-FC98-3C46714EA488</key>
-		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>B17032CF-93B4-4704-2FCB-6F790471D7BB</string>
+				<string>9C5E10AD-7192-45E2-0DA9-4D57825FB599</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -210,27 +196,6 @@
 			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
 			<string>1A7C3E2B-9F14-4D6A-8B21-C5E90A7F3D11</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>acceptsfiles</key>
-				<true/>
-				<key>acceptsmulti</key>
-				<integer>1</integer>
-				<key>acceptstext</key>
-				<false/>
-				<key>acceptsurls</key>
-				<false/>
-				<key>name</key>
-				<string>Upload to ImgBed</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.universalaction</string>
-			<key>uid</key>
-			<string>F5B47603-D7F8-4B48-63FF-A3BD48B51BFF</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -429,11 +394,11 @@
 			<key>config</key>
 			<dict>
 				<key>alfredfiltersresults</key>
-				<true/>
+				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -451,17 +416,19 @@
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Loading actions…</string>
 				<key>script</key>
 				<string>/usr/bin/python3 ./src/actions.py "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
+				<key>skipuniversalaction</key>
+				<true/>
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string></string>
+				<string>ImgBed</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -588,15 +555,6 @@
 			<real>30</real>
 			<key>ypos</key>
 			<real>50</real>
-		</dict>
-		<key>F5B47603-D7F8-4B48-63FF-A3BD48B51BFF</key>
-		<dict>
-			<key>note</key>
-			<string>Shows for any file in Universal Actions; script rejects non-images.</string>
-			<key>xpos</key>
-			<real>30</real>
-			<key>ypos</key>
-			<real>-80</real>
 		</dict>
 		<key>2B8D4F3C-0A25-4E7B-9C32-D6F01B8E4E22</key>
 		<dict>
@@ -783,7 +741,7 @@
 		<string>auth_code</string>
 	</array>
 	<key>version</key>
-	<string>1.1.2</string>
+	<string>1.1.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/qydxyx/alfred-imgbed-workflow</string>
 </dict>
