@@ -1,6 +1,6 @@
 # CloudFlare ImgBed for Alfred
 
-把 Finder 选中的图片，或剪贴板里的截图，上传到自建 [CloudFlare ImgBed](https://github.com/MarSeventh/CloudFlare-ImgBed)。成功后把链接写入剪贴板。失败不改剪贴板。
+把 Finder 选中的图片，或剪贴板里的截图，上传到自建 [CloudFlare ImgBed](https://github.com/MarSeventh/CloudFlare-ImgBed)。成功后弹出通知、把链接写入剪贴板，并在 Alfred 里给出后续操作。失败不改剪贴板。
 
 需要 Alfred 5 Powerpack。
 
@@ -30,8 +30,11 @@
 
 ## 行为
 
-- 成功：通知里带文件名和 URL，URL 写入剪贴板（无尾换行）
-- 失败：弹出原因（无图、401、网络错误等），**不改**剪贴板
+- 成功：系统通知显示 URL；链接写入剪贴板（无尾换行）；Alfred 列出可选项
+  - 复制图床链接 / Markdown / HTML
+  - 在浏览器打开图片
+  - 打开图床后台 `/dashboard`（登录后可编辑、删除）
+- 失败：系统通知显示原因（无图、401、网络错误等），**不改**剪贴板
 - TIFF 截图会先转成 PNG
 - 多选文件只传第一张
 - 认证码走 `authCode` 请求头，不放在 URL 上
@@ -56,10 +59,10 @@ export upload_channel="cfr2"
 每个 `v*` tag 会打一个 GitHub Release，附件是 `CloudFlare-ImgBed.alfredworkflow`（不含认证码）。
 
 ```bash
-# 1. 改 info.plist 里的 version，例如 1.0.1
+# 1. 改 info.plist 里的 version，例如 1.1.0
 # 2. 提交后打 tag
-git tag v1.0.1
-git push origin v1.0.1
+git tag v1.1.0
+git push origin v1.1.0
 ```
 
 本地预览包：

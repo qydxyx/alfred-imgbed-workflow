@@ -83,32 +83,20 @@ def log(msg):
     sys.stderr.flush()
 
 
-def applescript_quote(text):
-    return text.replace("\\", "\\\\").replace('"', '\\"')
-
-
-def notify(title, message):
-    script = 'display notification "{}" with title "{}"'.format(
-        applescript_quote(message),
-        applescript_quote(title),
-    )
-    subprocess.run(["/usr/bin/osascript", "-e", script], check=False)
-
-
 def copy_url(url):
     subprocess.run(["/usr/bin/pbcopy"], input=url.encode("utf-8"), check=True)
 
 
 def fail(message):
     log(message)
-    notify("ImgBed 上传失败", message)
+    sys.stdout.write(message)
     sys.exit(1)
 
 
 def succeed(url, filename):
     copy_url(url)
-    notify("ImgBed 已上传", "{}  {}".format(filename, url))
-    sys.stdout.write(url + "\n")
+    log("uploaded {} -> {}".format(filename, url))
+    sys.stdout.write(url)
     sys.exit(0)
 
 

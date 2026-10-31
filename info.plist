@@ -60,6 +60,110 @@
 				<false/>
 			</dict>
 		</array>
+		<key>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7A3C9E8B-5F70-43C0-EB87-2B35603D9377</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6F2B8D7A-4E69-42BF-DA76-1A245F2C8266</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7A3C9E8B-5F70-43C0-EB87-2B35603D9377</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7A3C9E8B-5F70-43C0-EB87-2B35603D9377</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8B4D0F9C-6081-44D1-FC98-3C46714EA488</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>71B40A1C-6E81-54D1-FC98-3C46714EA488</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>9C5E10AD-7192-45E2-0DA9-4D57825FB599</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8B4D0F9C-6081-44D1-FC98-3C46714EA488</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B17032CF-93B4-4704-2FCB-6F790471D7BB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B17032CF-93B4-4704-2FCB-6F790471D7BB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C28143D0-A4C5-4815-30DC-708A1582E8CC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+		</array>
+		<key>C28143D0-A4C5-4815-30DC-708A1582E8CC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D39254E1-B5D6-4926-41ED-819B2693F9DD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>C28143D1-A4C5-4815-30DC-708A1582E8CC</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E4A365F2-C6E7-4A37-52FE-92AC37A40AEE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>C28143D2-A4C5-4815-30DC-708A1582E8CC</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>qydxyx</string>
@@ -207,6 +311,215 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>^https://</string>
+						<key>outputlabel</key>
+						<string>ok</string>
+						<key>uid</key>
+						<string>71B40A1C-6E81-54D1-FC98-3C46714EA488</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>fail</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>7A3C9E8B-5F70-43C0-EB87-2B35603D9377</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>ImgBed 已上传</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8B4D0F9C-6081-44D1-FC98-3C46714EA488</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>ImgBed 上传失败</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9C5E10AD-7192-45E2-0DA9-4D57825FB599</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string></string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>/usr/bin/python3 ./src/actions.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>B17032CF-93B4-4704-2FCB-6F790471D7BB</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:action}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>copy</string>
+						<key>outputlabel</key>
+						<string>copy</string>
+						<key>uid</key>
+						<string>C28143D1-A4C5-4815-30DC-708A1582E8CC</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:action}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>open</string>
+						<key>outputlabel</key>
+						<string>open</string>
+						<key>uid</key>
+						<string>C28143D2-A4C5-4815-30DC-708A1582E8CC</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>C28143D0-A4C5-4815-30DC-708A1582E8CC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D39254E1-B5D6-4926-41ED-819B2693F9DD</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<true/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>E4A365F2-C6E7-4A37-52FE-92AC37A40AEE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>把剪贴板或 Finder 里的图片上传到 CloudFlare ImgBed。
@@ -225,13 +538,14 @@
 • 复制截图（⌘⌃⇧4）或网页图片 → 按 Hotkey，或输入 imgbed
 • 测试连接：imgbed-test（会上传一张 1×1 PNG）
 
+成功后会弹出通知，并把链接写入剪贴板；Alfred 里可选：再复制链接 / Markdown / HTML、打开图片、打开 /dashboard 后台。
 失败不会改剪贴板。认证码不会随 .alfredworkflow 导出。</string>
 	<key>uidata</key>
 	<dict>
 		<key>1A7C3E2B-9F14-4D6A-8B21-C5E90A7F3D11</key>
 		<dict>
 			<key>xpos</key>
-			<real>60</real>
+			<real>30</real>
 			<key>ypos</key>
 			<real>50</real>
 		</dict>
@@ -240,39 +554,92 @@
 			<key>note</key>
 			<string>No argument — script reads the clipboard. Assign your own hotkey.</string>
 			<key>xpos</key>
-			<real>60</real>
+			<real>30</real>
 			<key>ypos</key>
 			<real>180</real>
 		</dict>
 		<key>3C9E5A4D-1B36-4F8C-AD43-E7012C9F5F33</key>
 		<dict>
 			<key>xpos</key>
-			<real>60</real>
+			<real>30</real>
 			<key>ypos</key>
 			<real>310</real>
 		</dict>
 		<key>4D0F6B5E-2C47-409D-BE54-F8123D0A6044</key>
 		<dict>
 			<key>xpos</key>
-			<real>60</real>
+			<real>30</real>
 			<key>ypos</key>
 			<real>440</real>
 		</dict>
 		<key>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</key>
 		<dict>
 			<key>note</key>
-			<string>Copies URL and notifies from Python. Do not attach Copy to Clipboard.</string>
+			<string>Stdout is the URL on success, or an error message on failure.</string>
 			<key>xpos</key>
-			<real>320</real>
+			<real>280</real>
 			<key>ypos</key>
 			<real>180</real>
 		</dict>
 		<key>6F2B8D7A-4E69-42BF-DA76-1A245F2C8266</key>
 		<dict>
 			<key>xpos</key>
-			<real>320</real>
+			<real>280</real>
 			<key>ypos</key>
 			<real>440</real>
+		</dict>
+		<key>7A3C9E8B-5F70-43C0-EB87-2B35603D9377</key>
+		<dict>
+			<key>note</key>
+			<string>^https:// → success; else fail notification.</string>
+			<key>xpos</key>
+			<real>530</real>
+			<key>ypos</key>
+			<real>250</real>
+		</dict>
+		<key>8B4D0F9C-6081-44D1-FC98-3C46714EA488</key>
+		<dict>
+			<key>xpos</key>
+			<real>740</real>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>9C5E10AD-7192-45E2-0DA9-4D57825FB599</key>
+		<dict>
+			<key>xpos</key>
+			<real>740</real>
+			<key>ypos</key>
+			<real>360</real>
+		</dict>
+		<key>B17032CF-93B4-4704-2FCB-6F790471D7BB</key>
+		<dict>
+			<key>note</key>
+			<string>Copy URL / Markdown / HTML, open image, open dashboard.</string>
+			<key>xpos</key>
+			<real>980</real>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>C28143D0-A4C5-4815-30DC-708A1582E8CC</key>
+		<dict>
+			<key>xpos</key>
+			<real>1220</real>
+			<key>ypos</key>
+			<real>170</real>
+		</dict>
+		<key>D39254E1-B5D6-4926-41ED-819B2693F9DD</key>
+		<dict>
+			<key>xpos</key>
+			<real>1440</real>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+		<key>E4A365F2-C6E7-4A37-52FE-92AC37A40AEE</key>
+		<dict>
+			<key>xpos</key>
+			<real>1440</real>
+			<key>ypos</key>
+			<real>250</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -367,8 +734,8 @@
 		<string>auth_code</string>
 	</array>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>1.1.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/qydxyx/alfred-imgbed-workflow</string>
 </dict>
 </plist>
