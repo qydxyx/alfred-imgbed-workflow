@@ -21,6 +21,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>F5B47603-D7F8-4B48-63FF-A3BD48B51BFF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2B8D4F3C-0A25-4E7B-9C32-D6F01B8E4E22</key>
 		<array>
 			<dict>
@@ -182,6 +195,12 @@
 				<integer>1</integer>
 				<key>filetypes</key>
 				<array>
+					<string>public.png</string>
+					<string>public.jpeg</string>
+					<string>public.tiff</string>
+					<string>com.compuserve.gif</string>
+					<string>org.webmproject.webp</string>
+					<string>public.heic</string>
 					<string>+public.image</string>
 				</array>
 				<key>name</key>
@@ -191,6 +210,27 @@
 			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
 			<string>1A7C3E2B-9F14-4D6A-8B21-C5E90A7F3D11</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsfiles</key>
+				<true/>
+				<key>acceptsmulti</key>
+				<integer>1</integer>
+				<key>acceptstext</key>
+				<false/>
+				<key>acceptsurls</key>
+				<false/>
+				<key>name</key>
+				<string>Upload to ImgBed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.universalaction</string>
+			<key>uid</key>
+			<string>F5B47603-D7F8-4B48-63FF-A3BD48B51BFF</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -549,6 +589,15 @@
 			<key>ypos</key>
 			<real>50</real>
 		</dict>
+		<key>F5B47603-D7F8-4B48-63FF-A3BD48B51BFF</key>
+		<dict>
+			<key>note</key>
+			<string>Shows for any file in Universal Actions; script rejects non-images.</string>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>-80</real>
+		</dict>
 		<key>2B8D4F3C-0A25-4E7B-9C32-D6F01B8E4E22</key>
 		<dict>
 			<key>note</key>
@@ -734,7 +783,7 @@
 		<string>auth_code</string>
 	</array>
 	<key>version</key>
-	<string>1.1.1</string>
+	<string>1.1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/qydxyx/alfred-imgbed-workflow</string>
 </dict>
