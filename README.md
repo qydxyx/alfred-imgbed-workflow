@@ -6,7 +6,8 @@
 
 ## 安装
 
-1. 双击 `CloudFlare-ImgBed.alfredworkflow`，或把本仓库链到 Alfred 的 workflows 目录
+1. 从 [Releases](https://github.com/qydxyx/alfred-imgbed-workflow/releases) 下载 `CloudFlare-ImgBed.alfredworkflow` 并双击
+2. 开发可把本仓库链到 Alfred 的 workflows 目录
 2. 打开 Alfred → Workflows → **CloudFlare ImgBed** → 右上角 `[x]`
 3. 填写：
    - **ImgBed URL**：例如 `https://cloudflare-imgbed.qydxyx.workers.dev`（不要尾斜杠）
@@ -50,12 +51,21 @@ export upload_channel="cfr2"
 /usr/bin/python3 src/upload.py --test
 ```
 
-## 导出
+## 发版
 
-认证码在 `variablesdontexport` 里，导出 `.alfredworkflow` 时不会带上。
+每个 `v*` tag 会打一个 GitHub Release，附件是 `CloudFlare-ImgBed.alfredworkflow`（不含认证码）。
 
 ```bash
-zip -r CloudFlare-ImgBed.alfredworkflow info.plist icon.png src README.md
+# 1. 改 info.plist 里的 version，例如 1.0.1
+# 2. 提交后打 tag
+git tag v1.0.1
+git push origin v1.0.1
+```
+
+本地预览包：
+
+```bash
+bash scripts/package.sh
 ```
 
 ## 常见错误
