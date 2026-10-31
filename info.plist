@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.qydxyx.alfred-imgbed</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>1A7C3E2B-9F14-4D6A-8B21-C5E90A7F3D11</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>2B8D4F3C-0A25-4E7B-9C32-D6F01B8E4E22</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>3C9E5A4D-1B36-4F8C-AD43-E7012C9F5F33</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>4D0F6B5E-2C47-409D-BE54-F8123D0A6044</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6F2B8D7A-4E69-42BF-DA76-1A245F2C8266</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>qydxyx</string>
+	<key>description</key>
+	<string>Upload clipboard or Finder images to CloudFlare ImgBed</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>CloudFlare ImgBed</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<integer>1</integer>
+				<key>filetypes</key>
+				<array>
+					<string>public.image</string>
+				</array>
+				<key>name</key>
+				<string>Upload to ImgBed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>1A7C3E2B-9F14-4D6A-8B21-C5E90A7F3D11</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>2B8D4F3C-0A25-4E7B-9C32-D6F01B8E4E22</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>imgbed</string>
+				<key>subtext</key>
+				<string>Upload the image currently on the clipboard</string>
+				<key>text</key>
+				<string>Upload to ImgBed</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3C9E5A4D-1B36-4F8C-AD43-E7012C9F5F33</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>imgbed-test</string>
+				<key>subtext</key>
+				<string>Upload a 1×1 PNG to verify URL and auth code</string>
+				<key>text</key>
+				<string>Test ImgBed connection</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>4D0F6B5E-2C47-409D-BE54-F8123D0A6044</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>/usr/bin/python3 ./src/upload.py "$@"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>/usr/bin/python3 ./src/upload.py --test</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6F2B8D7A-4E69-42BF-DA76-1A245F2C8266</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>把剪贴板或 Finder 里的图片上传到 CloudFlare ImgBed。
+
+需要：Alfred 5 Powerpack、Xcode Command Line Tools（/usr/bin/python3）。
+
+配置
+1. 点 workflow 右侧 [x]
+2. 填写 ImgBed URL（不要尾斜杠）
+3. 填写后台「用户认证码」（不是管理员密码）
+4. 渠道默认 cfr2；未绑 R2 可改成 telegram
+5. 双击 Hotkey 对象，设一个快捷键
+
+用法
+• Finder 选中图片 → Universal Action（默认 ⌘/）→ Upload to ImgBed
+• 复制截图（⌘⌃⇧4）或网页图片 → 按 Hotkey，或输入 imgbed
+• 测试连接：imgbed-test（会上传一张 1×1 PNG）
+
+失败不会改剪贴板。认证码不会随 .alfredworkflow 导出。</string>
+	<key>uidata</key>
+	<dict>
+		<key>1A7C3E2B-9F14-4D6A-8B21-C5E90A7F3D11</key>
+		<dict>
+			<key>xpos</key>
+			<real>60</real>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+		<key>2B8D4F3C-0A25-4E7B-9C32-D6F01B8E4E22</key>
+		<dict>
+			<key>note</key>
+			<string>No argument — script reads the clipboard. Assign your own hotkey.</string>
+			<key>xpos</key>
+			<real>60</real>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>3C9E5A4D-1B36-4F8C-AD43-E7012C9F5F33</key>
+		<dict>
+			<key>xpos</key>
+			<real>60</real>
+			<key>ypos</key>
+			<real>310</real>
+		</dict>
+		<key>4D0F6B5E-2C47-409D-BE54-F8123D0A6044</key>
+		<dict>
+			<key>xpos</key>
+			<real>60</real>
+			<key>ypos</key>
+			<real>440</real>
+		</dict>
+		<key>5E1A7C6F-3D58-41AE-CF65-09134E1B7155</key>
+		<dict>
+			<key>note</key>
+			<string>Copies URL and notifies from Python. Do not attach Copy to Clipboard.</string>
+			<key>xpos</key>
+			<real>320</real>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>6F2B8D7A-4E69-42BF-DA76-1A245F2C8266</key>
+		<dict>
+			<key>xpos</key>
+			<real>320</real>
+			<key>ypos</key>
+			<real>440</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>https://cloudflare-imgbed.qydxyx.workers.dev</string>
+				<key>placeholder</key>
+				<string>https://your-imgbed.example</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>ImgBed 站点地址，不要尾斜杠。写成带 /upload 也可以，脚本会归一。</string>
+			<key>label</key>
+			<string>ImgBed URL</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>imgbed_url</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>后台「用户认证码」，不是管理员密码。此实例必填。不会随工作流导出。</string>
+			<key>label</key>
+			<string>Auth Code</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>auth_code</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>cfr2</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>Cloudflare R2 (cfr2)</string>
+						<string>cfr2</string>
+					</array>
+					<array>
+						<string>Telegram</string>
+						<string>telegram</string>
+					</array>
+					<array>
+						<string>S3</string>
+						<string>s3</string>
+					</array>
+					<array>
+						<string>Discord</string>
+						<string>discord</string>
+					</array>
+					<array>
+						<string>Hugging Face</string>
+						<string>huggingface</string>
+					</array>
+					<array>
+						<string>WebDAV</string>
+						<string>webdav</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>必须和站点已配置的渠道一致。失败不会自动换渠道。</string>
+			<key>label</key>
+			<string>Upload Channel</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>upload_channel</string>
+		</dict>
+	</array>
+	<key>variablesdontexport</key>
+	<array>
+		<string>auth_code</string>
+	</array>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

@@ -1,0 +1,5 @@
+.DS_Store
+prefs.plist
+*.pyc
+__pycache__/
+CloudFlare-ImgBed.alfredworkflow
