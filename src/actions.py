@@ -50,11 +50,11 @@ def main(argv):
     markdown = "![]({})".format(url)
     html = '<img src="{}" alt="">'.format(url)
     items = [
-        item("copy", "复制图床链接", url, url, "copy"),
-        item("markdown", "复制 Markdown", markdown, markdown, "copy"),
-        item("html", "复制 HTML", html, html, "copy"),
-        item("open", "在浏览器打开图片", url, url, "open"),
-        item("dashboard", "打开图床后台（编辑 / 管理）", dash, dash, "open"),
+        item("copy", "Copy image URL", url, url, "copy"),
+        item("markdown", "Copy Markdown", markdown, markdown, "copy"),
+        item("html", "Copy HTML", html, html, "copy"),
+        item("open", "Open image in browser", url, url, "open"),
+        item("dashboard", "Open ImgBed dashboard", dash, dash, "open"),
     ]
     sys.stdout.write(json.dumps({"items": items}, ensure_ascii=False))
 

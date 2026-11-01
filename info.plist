@@ -386,7 +386,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>ImgBed 已上传</string>
+				<string>ImgBed uploaded</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -407,7 +407,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>ImgBed 上传失败</string>
+				<string>ImgBed upload failed</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -565,7 +565,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>ImgBed 已复制</string>
+				<string>ImgBed copied</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -586,7 +586,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>ImgBed 已打开</string>
+				<string>ImgBed opened</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -597,24 +597,24 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>把剪贴板或 Finder 里的图片上传到 CloudFlare ImgBed。
+	<string>Upload clipboard or Finder images to CloudFlare ImgBed.
 
-需要：Alfred 5 Powerpack、Xcode Command Line Tools（/usr/bin/python3）。
+Requires Alfred 5 Powerpack and Xcode Command Line Tools (/usr/bin/python3).
 
-配置
-1. 点 workflow 右侧 [x]
-2. 填写 ImgBed URL（不要尾斜杠）
-3. 填写后台「用户认证码」（不是管理员密码）
-4. 渠道默认 cfr2；未绑 R2 可改成 telegram
-5. 双击 Hotkey 对象，设一个快捷键
+Setup
+1. Open the workflow [x] panel
+2. Set ImgBed URL (no trailing slash)
+3. Set the user auth code from the ImgBed admin (not the admin password)
+4. Channel defaults to cfr2; use telegram if R2 is not configured
+5. Double-click the Hotkey object and assign a shortcut
 
-用法
-• Finder 选中图片 → Universal Action（默认 ⌘/）→ Upload to ImgBed
-• 复制截图（⌘⌃⇧4）或网页图片 → 按 Hotkey，或输入 imgbed
-• 测试连接：imgbed-test（会上传一张 1×1 PNG）
+Usage
+• Select an image in Finder → Universal Action (default ⌘/) → Upload to ImgBed
+• Copy a screenshot (⌘⌃⇧4) or an image → press the Hotkey, or type imgbed
+• Test the connection: imgbed-test (uploads a 1×1 PNG)
 
-成功后会弹出通知，并把链接写入剪贴板；Alfred 里可选：再复制链接 / Markdown / HTML、打开图片、打开 /dashboard 后台。
-失败不会改剪贴板。认证码不会随 .alfredworkflow 导出。</string>
+On success: a notification, the URL on the clipboard, and actions to copy Markdown/HTML, open the image, or open /dashboard.
+On failure the clipboard is left unchanged. The auth code is not exported with the .alfredworkflow.</string>
 	<key>uidata</key>
 	<dict>
 		<key>1A7C3E2B-9F14-4D6A-8B21-C5E90A7F3D11</key>
@@ -746,7 +746,7 @@
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>ImgBed 站点地址，不要尾斜杠。写成带 /upload 也可以，脚本会归一。</string>
+			<string>ImgBed site URL, no trailing slash. A URL that ends with /upload is normalized.</string>
 			<key>label</key>
 			<string>ImgBed URL</string>
 			<key>type</key>
@@ -767,7 +767,7 @@
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>后台「用户认证码」，不是管理员密码。此实例必填。不会随工作流导出。</string>
+			<string>User auth code from the ImgBed admin, not the admin password. Required. Not exported with the workflow.</string>
 			<key>label</key>
 			<string>Auth Code</string>
 			<key>type</key>
@@ -809,7 +809,7 @@
 				</array>
 			</dict>
 			<key>description</key>
-			<string>必须和站点已配置的渠道一致。失败不会自动换渠道。</string>
+			<string>Must match a channel configured on the site. Failures do not fall back to another channel.</string>
 			<key>label</key>
 			<string>Upload Channel</string>
 			<key>type</key>
@@ -823,7 +823,7 @@
 		<string>auth_code</string>
 	</array>
 	<key>version</key>
-	<string>1.1.4</string>
+	<string>1.1.5</string>
 	<key>webaddress</key>
 	<string>https://github.com/qydxyx/alfred-imgbed-workflow</string>
 </dict>

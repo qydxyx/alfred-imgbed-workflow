@@ -1,48 +1,48 @@
 # CloudFlare ImgBed for Alfred
 
-把 Finder 选中的图片，或剪贴板里的截图，上传到自建 [CloudFlare ImgBed](https://github.com/MarSeventh/CloudFlare-ImgBed)。成功后弹出通知、把链接写入剪贴板，并在 Alfred 里给出后续操作。失败不改剪贴板。
+Upload a Finder image or a clipboard screenshot to a self-hosted [CloudFlare ImgBed](https://github.com/MarSeventh/CloudFlare-ImgBed). On success, Alfred shows a notification, copies the URL, and offers follow-up actions. On failure the clipboard is left unchanged.
 
-需要 Alfred 5 Powerpack。
+Requires Alfred 5 Powerpack.
 
-## 安装
+## Install
 
-1. 从 [Releases](https://github.com/qydxyx/alfred-imgbed-workflow/releases) 下载 `CloudFlare-ImgBed.alfredworkflow` 并双击
-2. 开发可把本仓库链到 Alfred 的 workflows 目录
-2. 打开 Alfred → Workflows → **CloudFlare ImgBed** → 右上角 `[x]`
-3. 填写：
-   - **ImgBed URL**：例如 `https://cloudflare-imgbed.qydxyx.workers.dev`（不要尾斜杠）
-   - **Auth Code**：ImgBed 后台的「用户认证码」，不是管理员密码
-   - **Upload Channel**：已绑 R2 就用 `cfr2`
-4. 双击画布上的 Hotkey，设一个快捷键
+1. Download `CloudFlare-ImgBed.alfredworkflow` from [Releases](https://github.com/qydxyx/alfred-imgbed-workflow/releases) and double-click it
+2. For development, symlink this repo into Alfred’s workflows folder
+3. Open Alfred → Workflows → **CloudFlare ImgBed** → `[x]`
+4. Fill in:
+   - **ImgBed URL**: for example `https://cloudflare-imgbed.qydxyx.workers.dev` (no trailing slash)
+   - **Auth Code**: the user auth code from the ImgBed admin, not the admin password
+   - **Upload Channel**: `cfr2` if R2 is bound
+5. Double-click the Hotkey object and assign a shortcut
 
-`/usr/bin/python3` 需要 [Xcode Command Line Tools](https://developer.apple.com/xcode/resources/)。没装时第一次运行会弹安装框。
+`/usr/bin/python3` needs [Xcode Command Line Tools](https://developer.apple.com/xcode/resources/). macOS prompts to install them on first run if they are missing.
 
-## 用法
+## Usage
 
-| 场景 | 怎么做 |
+| Situation | How |
 | --- | --- |
-| Finder 里的图片文件 | 选中文件 → Universal Action（默认 `⌘/`）→ **Upload to ImgBed**（匹配全部 `public.image`，含 PNG / JPEG / GIF / WebP / TIFF） |
-| 剪贴板截图 | `⌘⌃⇧4` 复制到剪贴板 → 按 Hotkey，或 Alfred 里输入 `imgbed` |
-| 桌面截图文件 | `⌘⇧4` 存到桌面 → 选中该文件 → Universal Action |
-| 测试连接 | Alfred 里输入 `imgbed-test`（会上传一张 1×1 PNG） |
+| Image file in Finder | Select the file → Universal Action (default `⌘/`) → **Upload to ImgBed** (matches `public.image`: PNG / JPEG / GIF / WebP / TIFF) |
+| Clipboard screenshot | `⌘⌃⇧4` to copy → Hotkey, or type `imgbed` in Alfred |
+| Screenshot saved to Desktop | `⌘⇧4` → select the file → Universal Action |
+| Connection test | Type `imgbed-test` in Alfred (uploads a 1×1 PNG) |
 
-`⌘⇧4` 默认把文件存到桌面，不会进剪贴板。剪贴板截图用 `⌘⌃⇧4`。
+`⌘⇧4` saves a file to the Desktop by default. Use `⌘⌃⇧4` for a clipboard screenshot.
 
-## 行为
+## Behavior
 
-- 成功：系统通知显示 URL；链接写入剪贴板（无尾换行）；Alfred 列出可选项
-  - 复制图床链接 / Markdown / HTML
-  - 在浏览器打开图片
-  - 打开图床后台 `/dashboard`（登录后可编辑、删除）
-- 失败：系统通知显示原因（无图、401、网络错误等），**不改**剪贴板
-- TIFF 截图会先转成 PNG
-- 多选文件只传第一张
-- 认证码走 `authCode` 请求头，不放在 URL 上
-- `returnFormat=full`、`autoRetry=false` 写死，失败不会静默换渠道
+- Success: system notification with the URL; URL copied to the clipboard (no trailing newline); Alfred lists actions
+  - Copy image URL / Markdown / HTML
+  - Open the image in a browser
+  - Open the ImgBed `/dashboard` (sign in to edit or delete)
+- Failure: notification with the reason (no image, 401, network error, …); clipboard unchanged
+- TIFF screenshots are converted to PNG first
+- Multiple selected files: only the first is uploaded
+- Auth code is sent in the `authCode` header, not in the URL
+- `returnFormat=full` and `autoRetry=false` are fixed; a failed channel is not retried silently
 
-## 命令行
+## Command line
 
-配置通过环境变量传入，和 Workflow Configuration 同名：
+Configuration is passed as environment variables with the same names as Workflow Configuration:
 
 ```bash
 export imgbed_url="https://cloudflare-imgbed.qydxyx.workers.dev"
@@ -50,32 +50,32 @@ export auth_code="YOUR_CODE"
 export upload_channel="cfr2"
 
 /usr/bin/python3 src/upload.py /path/to/image.png
-/usr/bin/python3 src/upload.py            # 读剪贴板
+/usr/bin/python3 src/upload.py            # clipboard
 /usr/bin/python3 src/upload.py --test
 ```
 
-## 发版
+## Releases
 
-每个 `v*` tag 会打一个 GitHub Release，附件是 `CloudFlare-ImgBed.alfredworkflow`（不含认证码）。
+Each `v*` tag creates a GitHub Release with `CloudFlare-ImgBed.alfredworkflow` (auth code excluded).
 
 ```bash
-# 1. 改 info.plist 里的 version，例如 1.1.0
-# 2. 提交后打 tag
-git tag v1.1.0
-git push origin v1.1.0
+# 1. Bump version in info.plist, e.g. 1.1.5
+# 2. Commit, then tag
+git tag v1.1.5
+git push origin v1.1.5
 ```
 
-本地预览包：
+Package locally:
 
 ```bash
 bash scripts/package.sh
 ```
 
-## 常见错误
+## Common errors
 
-| 提示 | 处理 |
+| Message | What to do |
 | --- | --- |
-| 剪贴板里没有图片 | 确认复制的是图，不是文字；截图请用 `⌘⌃⇧4` |
-| 401 Unauthorized | 在 `[x]` 里填写用户认证码 |
-| 不支持的图片格式 | 用 PNG / JPEG / GIF / WebP。HEIC 首版不支持 |
-| `/usr/bin/python3` 弹安装框 | 安装 Xcode Command Line Tools |
+| No image on the clipboard | Confirm the clipboard holds an image, not text; use `⌘⌃⇧4` for screenshots |
+| 401 Unauthorized | Set the user auth code in `[x]` |
+| Unsupported image format | Use PNG / JPEG / GIF / WebP. HEIC is not supported |
+| `/usr/bin/python3` install prompt | Install Xcode Command Line Tools |

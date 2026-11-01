@@ -103,29 +103,29 @@ def succeed(url, filename):
 def normalize_origin(raw):
     url = (raw or "").strip()
     if not url:
-        raise ValueError("请在 Workflow 配置里填写 imgbed_url")
+        raise ValueError("Set imgbed_url in Workflow Configuration")
     url = url.rstrip("/")
     if url.lower().endswith("/upload"):
         url = url[: -len("/upload")].rstrip("/")
     if not url.lower().startswith("https://"):
-        raise ValueError("imgbed_url 必须是 https:// 开头")
+        raise ValueError("imgbed_url must start with https://")
     return url
 
 
 def pick_url(payload):
     if isinstance(payload, list):
         if not payload:
-            raise ValueError("上传成功但响应是空数组")
+            raise ValueError("Upload succeeded but the response array is empty")
         item = payload[0]
     elif isinstance(payload, dict):
         item = payload
     else:
-        raise ValueError("响应不是 JSON 数组或对象")
+        raise ValueError("Response is not a JSON array or object")
     if not isinstance(item, dict):
-        raise ValueError("响应缺少 src")
+        raise ValueError("Response is missing src")
     url = (item.get("publicUrl") or item.get("src") or "").strip()
     if not url:
-        raise ValueError("响应缺少 src")
+        raise ValueError("Response is missing src")
     return url
 
 
@@ -150,21 +150,21 @@ def convert_to_png(src, tmp_dir):
     )
     if result.returncode != 0 or not os.path.isfile(dst) or os.path.getsize(dst) == 0:
         detail = (result.stderr or result.stdout).decode("utf-8", "replace").strip()
-        raise RuntimeError(detail or "sips 转换失败")
+        raise RuntimeError(detail or "sips conversion failed")
     return dst
 
 
 def prepare_file(path, tmp_dir):
     if not path or not os.path.isfile(path):
-        fail("找不到图片文件")
+        fail("Image file not found")
     ext = extension(path)
     if ext in CONVERT_EXT:
         try:
             return convert_to_png(path, tmp_dir)
         except Exception as exc:
-            fail("无法将 TIFF 转为 PNG：{}".format(exc))
+            fail("Could not convert TIFF to PNG: {}".format(exc))
     if ext not in ALLOWED_EXT:
-        fail("不支持的图片格式（{}）。请用 PNG / JPEG / GIF / WebP".format(ext or "无扩展名"))
+        fail("Unsupported image format ({}). Use PNG / JPEG / GIF / WebP".format(ext or "no extension"))
     return path
 
 
@@ -178,19 +178,19 @@ def clipboard_image(tmp_dir):
         capture_output=True,
     )
     if result.returncode != 0:
-        fail("读取剪贴板失败")
+        fail("Could not read the clipboard")
     text = result.stdout.decode("utf-8", "replace").strip()
     if not text or text == "none":
-        fail("剪贴板里没有图片")
+        fail("No image on the clipboard")
     kind, _, value = text.partition("\t")
     path = value.strip()
     if kind == "file":
         return prepare_file(path, tmp_dir)
     if kind in ("png", "tiff"):
         if not os.path.isfile(path) or os.path.getsize(path) == 0:
-            fail("剪贴板里没有图片")
+            fail("No image on the clipboard")
         return prepare_file(path, tmp_dir)
-    fail("剪贴板里没有图片")
+    fail("No image on the clipboard")
 
 
 def write_test_png(tmp_dir):
@@ -230,25 +230,25 @@ def upload(path, origin, auth_code, channel):
     stdout = result.stdout.decode("utf-8", "replace")
     stderr = result.stderr.decode("utf-8", "replace").strip()
     if result.returncode != 0:
-        raise RuntimeError(stderr or "网络错误")
+        raise RuntimeError(stderr or "Network error")
     if "\n" not in stdout:
-        raise RuntimeError(stdout.strip() or "空响应")
+        raise RuntimeError(stdout.strip() or "Empty response")
     body, _, status = stdout.rpartition("\n")
     return status.strip(), body.strip(), stderr
 
 
 def explain_http(status, body):
     if status == "401":
-        return "401 Unauthorized：认证码错误或未填写，请在 Workflow 配置里填写用户认证码"
+        return "401 Unauthorized: auth code is wrong or missing. Set it in Workflow Configuration"
     if status == "403":
-        return "403：当前 IP 被封禁"
+        return "403: this IP is blocked"
     if status == "400":
-        return "400：文件类型或内容不被接受" + ("（{}）".format(body) if body else "")
+        return "400: file type or contents rejected" + (" ({})".format(body) if body else "")
     if status == "500":
-        return "500：服务器错误" + ("（{}）".format(body[:200]) if body else "")
+        return "500: server error" + (" ({})".format(body[:200]) if body else "")
     if status == "000":
-        return "网络错误或超时"
-    return "上传失败 HTTP {} {}".format(status, body[:200]).strip()
+        return "Network error or timeout"
+    return "Upload failed HTTP {} {}".format(status, body[:200]).strip()
 
 
 def main(argv):
@@ -276,7 +276,7 @@ def main(argv):
         else:
             given, extra = first_path(args)
             if extra > 1:
-                log("已忽略其余 {} 张，只上传第一张".format(extra - 1))
+                log("Ignored {} extra file(s); uploading the first only".format(extra - 1))
             if given:
                 path = prepare_file(given, tmp_dir)
             else:
@@ -294,14 +294,14 @@ def main(argv):
             payload = json.loads(body)
             url = pick_url(payload)
         except (ValueError, json.JSONDecodeError):
-            fail("无法解析上传响应")
+            fail("Could not parse the upload response")
 
         if url.startswith("/"):
             url = origin + url
 
         filename = os.path.basename(path)
         if extra > 1:
-            filename = "{}（及忽略 {} 张）".format(filename, extra - 1)
+            filename = "{} (ignored {} extra)".format(filename, extra - 1)
         succeed(url, filename)
     finally:
         try:
@@ -322,4 +322,4 @@ if __name__ == "__main__":
         raise
     except Exception:
         traceback.print_exc()
-        fail("内部错误，请看 Alfred Debugger")
+        fail("Internal error; see Alfred Debugger")
